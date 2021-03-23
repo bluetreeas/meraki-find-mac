@@ -1,11 +1,6 @@
 from utils.meraki_api import MerakiApi
 from time import sleep
-import os
 import argparse
-
-MERAKI_API_KEY = os.getenv('MERAKI_API_KEY')
-MERAKI_ORG_ID = "SET MERAKI ORG ID HERE"
-MAC_ADDRESS = "SET MAC ADDRESS HERE"
 
 
 def main():
