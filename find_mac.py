@@ -24,8 +24,8 @@ def main():
         print(f'    Connection details: Port: {device_client.get("switchport")}, VLAN: {device_client.get("vlan")}, IP: {device_client.get("ip")}')
 
         print(f'    Start blinking device leds on {client.get("recentDeviceName")} for 20 seconds...')
-        #meraki_api.blink_device_leds(client.get('recentDeviceSerial'))
-        #sleep(20)
+        meraki_api.blink_device_leds(client.get('recentDeviceSerial'))
+        sleep(20)
         print(f'    Blinking device leds of {client.get("recentDeviceName")} completed.')
 
 
