@@ -13,22 +13,13 @@ This script takes a MAC address as input, and returns where it's connected and b
 1. Install needed python packages
 
 ```
-pip3 install -r requirements.txt
+pip install -r requirements.txt
 ```
 
-2. Set environment variables
+2. Run script with the required arguments
 
 ```
-export MERAKI_API_KEY = <YOUR MERAKI API KEY>
+python find_mac.py MERAKI_KEY MERAKI_ORG_ID MAC_ADDRESS
 ```
 
-3. Run script
-
-```
-python3 find_mac.py
-```
-
-4. Input MAC address and org id
-
-```
-```
+3. Run around and see if you find the blinking LEDs :)

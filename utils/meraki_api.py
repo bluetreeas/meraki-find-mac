@@ -20,8 +20,11 @@ class MerakiApi:
         return org_name
 
     def _get_networks(self):
-        networks = self.dashboard.organizations.getOrganizationNetworks(self.meraki_org_id)
-        return networks
+        try:
+            networks = self.dashboard.organizations.getOrganizationNetworks(self.meraki_org_id)
+            return networks
+        except meraki.exceptions.APIError:
+            return None
 
     def _get_network_clients(self, network_id):
         try:
@@ -31,30 +34,35 @@ class MerakiApi:
             return None
 
     def get_device_client_data(self, serial, mac):
+        mac = mac.lower().replace(':', '').replace('-', '')
+
         try:
             clients = self.dashboard.devices.getDeviceClients(serial)
             for client in clients:
-                if client['mac'].lower() == mac.lower():
+                if client['mac'].lower().replace(':', '') == mac:
                     return client
             return None
         except meraki.exceptions.APIError:
             return None
 
     def find_mac_by_network(self, mac):
+        mac = mac.lower().replace(':', '').replace('-', '')
         networks = self._get_networks()
 
-        for network in networks:
-            print(f'Checking network: {network["name"]}')
-            network_clients = self._get_network_clients(network['id'])
+        if networks:
+            for network in networks:
+                print(f'Checking network: {network["name"]}')
+                network_clients = self._get_network_clients(network['id'])
 
-            if network_clients:
-                for client in network_clients:
-                    if client['mac'].lower() == mac.lower():
-                        return client
+                if network_clients:
+                    for client in network_clients:
+                        if client['mac'].lower().replace(':', '') == mac:
+                            return client
 
-            print("    MAC not found in this network")
-
-        return None
+                print("    MAC not found in this network")
+        else:
+            print("Error: Please verify meraki api key and org id")
+            return None
 
     def blink_device_leds(self, serial):
         response = self.dashboard.devices.blinkDeviceLeds(serial)
