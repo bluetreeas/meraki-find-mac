@@ -8,7 +8,7 @@ This script takes a MAC address as input, and returns where it's connected and b
 - Python 3.6+
 - Administrator access to Meraki Dashboard
 
-## Getting started
+## Instructions
 
 1. Install needed python packages
 
