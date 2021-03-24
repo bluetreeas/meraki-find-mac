@@ -30,3 +30,7 @@ python find_mac.py <MERAKI_KEY> <MERAKI_ORG_ID> <MAC_ADDRESS>
 ```
 
 6. Run around and see if you find the blinking LEDs :)
+
+## Example 
+
+![Alt text](./find_mac_example.png?raw=true "Find MAC example")
