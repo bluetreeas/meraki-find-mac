@@ -23,7 +23,7 @@ This script takes a MAC address as input, and returns where it's connected and b
 pip install -r requirements.txt
 ```
 
-5. Run script with the required arguments
+5. Run script with the required arguments (MAC address format is not case sensitive, and support notation with both ":", "-" and nothing between octets)
 
 ```
 python find_mac.py <MERAKI_KEY> <MERAKI_ORG_ID> <MAC_ADDRESS>
