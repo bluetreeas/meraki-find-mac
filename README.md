@@ -1,5 +1,7 @@
 # Meraki - Find MAC
 
+[![published](https://static.production.devnetcloud.com/codeexchange/assets/images/devnet-published.svg)](https://developer.cisco.com/codeexchange/github/repo/bluetreeas/meraki-find-mac)
+
 This script takes a MAC address as input, and returns where it's connected and blink the LED of the device.
 
 
